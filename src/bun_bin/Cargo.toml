@@ -13,6 +13,10 @@ name = "bun_rust"
 path = "lib.rs"
 crate-type = ["staticlib"]
 
+[[bin]]
+name = "js"
+path = "lib.rs"
+
 [lints]
 workspace = true
 

@@ -1,12 +1,12 @@
 <p align="center">
   <a href="https://bun.com"><img src="https://github.com/user-attachments/assets/50282090-adfd-4ddb-9e27-c30753c6b161" alt="Logo" height=170></a>
 </p>
-<h1 align="center">Bun</h1>
+<h1 align="center">Dx Js</h1>
 
 <p align="center">
 <a href="https://bun.com/discord" target="_blank"><img height=20 src="https://img.shields.io/discord/876711213126520882" /></a>
 <img src="https://img.shields.io/github/stars/oven-sh/bun" alt="stars">
-<a href="https://twitter.com/jarredsumner/status/1542824445810642946"><img src="https://img.shields.io/static/v1?label=speed&message=fast&color=success" alt="Bun speed" /></a>
+<a href="https://twitter.com/jarredsumner/status/1542824445810642946"><img src="https://img.shields.io/static/v1?label=speed&message=fast&color=success" alt="Dx Js speed" /></a>
 </p>
 
 <div align="center">
@@ -28,7 +28,7 @@ This `dev` branch carries the DX package metadata `.machine` cache integration. 
 
 The current benchmark is intentionally scoped: one local release binary, one commit, `.ts` fixtures only, `.machine` generation excluded, process startup excluded, and only `local-json` versus `local-machine`.
 
-Current proof uses release binary `build/release-proof-a3bf895c944e-20260601-151841/bun.exe`, revision `1.4.0-canary.1+a3bf895c9`, SHA256 `5793A93A275D5BF144B953FD21ACCF5064280014CEB71350891A3541188160E0`.
+Current proof uses release binary `build/release-proof-a3bf895c944e-20260601-151841/js.exe`, revision `1.4.0-canary.1+a3bf895c9`, SHA256 `5793A93A275D5BF144B953FD21ACCF5064280014CEB71350891A3541188160E0`.
 
 | case   | package JSON bytes | `local-json` | `local-machine` |            measured delta |  speedup |
 | ------ | -----------------: | -----------: | --------------: | ------------------------: | -------: |
@@ -57,12 +57,12 @@ Proof artifacts:
 - Summary: `.tmp/dx-local-json-vs-machine-benchmark-summary.md`
 - JSON evidence: `.tmp/dx-local-json-vs-machine-benchmark-results.json`
 - Benchmark harness: `scripts/dx-local-json-vs-machine-benchmark.ts`
-- Release proof: `build/release-proof-a3bf895c944e-20260601-151841/bun.exe`
+- Release proof: `build/release-proof-a3bf895c944e-20260601-151841/js.exe`
 - Hot-path commit: `a3bf895c944e`
 
-## What is Bun?
+## What is Dx Js?
 
-Bun is an all-in-one toolkit for JavaScript and TypeScript apps. It ships as a single executable called `bun`.
+Dx Js is an all-in-one toolkit for JavaScript and TypeScript apps. It ships as a single executable called `js`.
 
 At its core is the _Bun runtime_, a fast JavaScript runtime designed as **a drop-in replacement for Node.js**. It's written in Zig and powered by JavaScriptCore under the hood, dramatically reducing startup times and memory usage.
 
