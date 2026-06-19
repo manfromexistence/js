@@ -1,0 +1,145 @@
+{
+  "schema": "dx.serializer.external_evidence_lock.v1",
+  "serializerRootHint": "G:/dx/serializer",
+  "gitBacked": false,
+  "cargoPackage": {
+    "name": "dx-serializer",
+    "version": "0.1.0",
+    "edition": "2024",
+    "rustVersion": "1.85"
+  },
+  "buildContract": {
+    "bin": "dx-serialize",
+    "cargoArgs": ["build", "--locked", "--manifest-path", "<manifest>", "--bin", "dx-serialize", "--features", "parallel"],
+    "runtimeArgs": ["--js-cache", "--machine-only", "--metadata", "--write-js-cache-artifacts"]
+  },
+  "note": "Pins the external DX serializer source snapshot used as evidence for Bun PLAN rows 1, 3, 16, 17, 18, and 30. Update intentionally when G:/dx/serializer changes.",
+  "files": [
+    {
+      "path": "Cargo.lock",
+      "bytes": 60641,
+      "sha256": "f1e50c01f5f4203868ab1e3be4ac5f14d2f4ab8e0c50ce80e643a1b93e51fb3e",
+      "reason": "Locks dependency graph for the external dx-serialize binary."
+    },
+    {
+      "path": "Cargo.toml",
+      "bytes": 5266,
+      "sha256": "611eb7f820f2e077bd11e25aa5693e97ad0ad4e626b7126388edeb8aedb4c2eb",
+      "reason": "Locks package identity, Rust version, features, and serializer-facing dependencies."
+    },
+    {
+      "path": "src/bin/js_cache_artifacts.rs",
+      "bytes": 26532,
+      "sha256": "5011b41dad7c57abfd427ff9dea236e8f6f88ceb26a274ad6bb011ff3c544b31",
+      "reason": "Owns catalog.machine and packed shard artifact writing used by the DX JS cache generator."
+    },
+    {
+      "path": "src/bin/serialize.rs",
+      "bytes": 11475,
+      "sha256": "155be469aed46b67267927aeb542756810098e079b005e1c21a0e1e03c86bbae",
+      "reason": "Owns dx-serialize CLI flags consumed by scripts/dx-js-machine-cache.ps1."
+    },
+    {
+      "path": "src/converters/json.rs",
+      "bytes": 13804,
+      "sha256": "9e4a121db319954f70e24715bf78b0daca231c0ed7c5c814b69676dca4d8c877",
+      "reason": "Owns JSON input conversion for package.json, tsconfig, jsconfig, and structured JSON cache entries."
+    },
+    {
+      "path": "src/converters/mod.rs",
+      "bytes": 2202,
+      "sha256": "5d8627bbecbc108b2c07ba7fe2ba55a566cf7d23958aef51d29a2f7a4cf7af14",
+      "reason": "Locks converter module glue for JSON/TOML cache inputs."
+    },
+    {
+      "path": "src/converters/toml.rs",
+      "bytes": 1655,
+      "sha256": "4c371591ec51cc5cda5f137acd8d16c60ce461400ef8ae4fd518f317ed7db189",
+      "reason": "Owns TOML input conversion for bunfig and structured TOML cache entries."
+    },
+    {
+      "path": "src/lib.rs",
+      "bytes": 18526,
+      "sha256": "d5aaf45d9e314b5f1112aa95ec7e8a07bbddc53f3c61a7586af7ded859cd3b2b",
+      "reason": "Locks public module exports used by the dx-serialize binary."
+    },
+    {
+      "path": "src/llm/cache_generator.rs",
+      "bytes": 12979,
+      "sha256": "63b90aed9537bb7ea52c55b2abce8e91dacff935b1678a6ee544b26944614e8a",
+      "reason": "Owns js-cache machine metadata and source hash generation."
+    },
+    {
+      "path": "src/llm/convert.rs",
+      "bytes": 29039,
+      "sha256": "48101bcde16ef8c68d87e385f38ea955906c284a3367d3b77212402203fabab9",
+      "reason": "Owns machine envelope encoding and the borrowed no-compression payload invariant."
+    },
+    {
+      "path": "src/llm/mod.rs",
+      "bytes": 2857,
+      "sha256": "4813ed264ee7003d9f6d965d66543cf90a690f7839c27a1a60f5c7b77e0b2f54",
+      "reason": "Locks LLM module glue for cache generation and conversion."
+    },
+    {
+      "path": "src/llm/rkyv_types.rs",
+      "bytes": 5079,
+      "sha256": "044cec341d43e6613afe8224f04d2e5d29db652b9c304df88d5247b2b28fcfd2",
+      "reason": "Locks archived machine payload types used by DXM1 documents."
+    },
+    {
+      "path": "src/llm/serializer_output.rs",
+      "bytes": 32139,
+      "sha256": "12ebf0bf1fb5dce4e3c23d4f2a12866c8f35419b0a469dc86dba2b2fa97ec407",
+      "reason": "Owns serializer output structures passed into machine conversion."
+    },
+    {
+      "path": "src/llm/types.rs",
+      "bytes": 25081,
+      "sha256": "a6513a2ec17df52a899a6edf5590bf30e15965a011dcfb24ec20e348f6e99aa6",
+      "reason": "Owns core serializer value types for JSON/TOML conversion output."
+    },
+    {
+      "path": "src/machine/api.rs",
+      "bytes": 5282,
+      "sha256": "4690065d1beb2e5352e4ec5b9d762372c40ed2bc55b98b647c7c8ac36eca34f7",
+      "reason": "Owns machine read/write API surface used by CLI artifact generation."
+    },
+    {
+      "path": "src/machine/compress.rs",
+      "bytes": 25353,
+      "sha256": "23be8a88f201761105bd338db4adab45549f4b9af8faffd306223c4d88b35eb1",
+      "reason": "Owns optional cold shard compression behavior referenced by PLAN row 30."
+    },
+    {
+      "path": "src/machine/header.rs",
+      "bytes": 9258,
+      "sha256": "78133cba68f4f8068af1d8c063da0ab27aeeb388a969186ae8470eac153fb9f3",
+      "reason": "Owns machine header constants and validation contracts for generated artifacts."
+    },
+    {
+      "path": "src/machine/intern.rs",
+      "bytes": 13126,
+      "sha256": "d3668be2ddb147feccdca3fa456907de75a10269ed258cf65acb8fe35db511f3",
+      "reason": "Pins the dormant generic interning module because PLAN row 18 explicitly scopes current work against it."
+    },
+    {
+      "path": "src/machine/machine_types.rs",
+      "bytes": 7814,
+      "sha256": "0c4c2b6655925f2845261c0fa31d2f6227b6f13cb60b51d95085e6e4ac3dcc54",
+      "reason": "Owns machine document type definitions used by serialized cache artifacts."
+    },
+    {
+      "path": "src/machine/mod.rs",
+      "bytes": 6269,
+      "sha256": "9fe5c1276a0b950a887ebc798c09c3198fbe5b13570b677aa08cf7d010c4a45f",
+      "reason": "Locks machine module glue for artifact writers and compression support."
+    },
+    {
+      "path": "src/machine/rkyv_compat.rs",
+      "bytes": 3876,
+      "sha256": "a026a9bfe851b27bc960f4dbaefa4c3c5a692a87816965054609cf77e7064575",
+      "reason": "Owns rkyv compatibility helpers used by machine artifact encoding."
+    }
+  ]
+}

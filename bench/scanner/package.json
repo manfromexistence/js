@@ -1,0 +1,7 @@
+{
+  "name": "scan",
+  "dependencies": {
+    "esbuild": "^0.14.11",
+    "oxc-parser": "^0.133.0"
+  }
+}

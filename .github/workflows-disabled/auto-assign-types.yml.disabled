@@ -1,0 +1,22 @@
+# DX GitHub Actions temporarily disabled.
+# Controlled deactivation requested by essencefromexistence to preserve limited GitHub Actions minutes.
+# Keep this workflow disabled until essencefromexistence explicitly re-enables GitHub Actions for this repository.
+name: Auto Assign Types Issues
+
+on:
+  issues:
+    types: [labeled]
+
+jobs:
+  auto-assign:
+    runs-on: ubuntu-latest
+    if: github.event.label.name == 'types'
+    permissions:
+      issues: write
+    steps:
+      - name: Assign to alii
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          gh issue edit ${{ github.event.issue.number }} --add-assignee alii
