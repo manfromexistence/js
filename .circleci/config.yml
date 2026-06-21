@@ -120,20 +120,20 @@ jobs:
             Invoke-WebRequest -Uri "https://win.rustup.rs/x86_64" -OutFile "rustup-init.exe"
             .\rustup-init.exe -y --default-toolchain 1.94.0 --profile minimal
       - run:
-                      name: Prepare repository build inputs
-            shell: powershell.exe
-            command: |
-              choco install ninja git strawberryperl -y -f --no-progress --limit-output
-              refreshenv
-              if (-not (Get-Command bun -ErrorAction SilentlyContinue)) {
-                Invoke-RestMethod -Uri "https://bun.sh/install.ps1" | Invoke-Expression
-              }
-              # Manually ensure git and perl are in PATH
-              $env:PATH = "C:\Program Files\LLVM\bin;C:\Program Files\Git\cmd;C:\Strawberry\perl\bin;C:\Windows\System32;$env:PATH"
-              bun --version
-              bun install --frozen-lockfile
-              bun scripts/build.ts --configure-only
-              ninja -C build/debug codegen clone-lolhtml
+          name: Prepare repository build inputs
+          shell: powershell.exe
+          command: |
+            choco install ninja git strawberryperl -y -f --no-progress --limit-output
+            refreshenv
+            if (-not (Get-Command bun -ErrorAction SilentlyContinue)) {
+              Invoke-RestMethod -Uri "https://bun.sh/install.ps1" | Invoke-Expression
+            }
+            # Manually ensure git and perl are in PATH
+            $env:PATH = "C:\Program Files\LLVM\bin;C:\Program Files\Git\cmd;C:\Strawberry\perl\bin;C:\Windows\System32;$env:PATH"
+            bun --version
+            bun install --frozen-lockfile
+            bun scripts/build.ts --configure-only
+            ninja -C build/debug codegen clone-lolhtml
       - run:
           name: Build Windows artifact for dx-js
           shell: powershell.exe
