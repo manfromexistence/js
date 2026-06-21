@@ -123,13 +123,13 @@ jobs:
           name: Prepare repository build inputs
           shell: powershell.exe
           command: |
-            choco install ninja git strawberryperl -y -f --no-progress --limit-output
+            choco install ninja pwsh git strawberryperl -y -f --no-progress --limit-output
             refreshenv
             if (-not (Get-Command bun -ErrorAction SilentlyContinue)) {
               Invoke-RestMethod -Uri "https://bun.sh/install.ps1" | Invoke-Expression
             }
             # Manually ensure git and perl are in PATH
-            $env:PATH = "C:\Program Files\LLVM\bin;C:\Program Files\Git\cmd;C:\Strawberry\perl\bin;C:\Windows\System32;$env:PATH"
+            $env:PATH = "C:\Program Files\LLVM\bin;C:\Program Files\Git\cmd;C:\Strawberry\perl\bin;C:\Windows\System32;C:\ProgramData\chocolatey\bin;C:\Program Files\PowerShell\7;$env:PATH"
             bun --version
             bun install --frozen-lockfile
             bun scripts/build.ts --configure-only
@@ -232,6 +232,7 @@ workflows:
 # workflows:
 #   linux-release: ...
 #   macos-release: ...
+
 
 
 
